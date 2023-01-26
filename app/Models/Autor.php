@@ -14,8 +14,12 @@ class Autor extends Model
     protected $fillable=[
         'nombre',
         'apellido',
-        'telefono',
         'correo',
+        'telefono',
         
     ];
+
+    public function autor(){
+        return $this->hasMany(Autor::class);
+    }
 }

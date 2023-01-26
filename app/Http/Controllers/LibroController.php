@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Autor;
 use App\Models\Libro;
 use App\Http\Requests\StoreLibroRequest;
 use App\Http\Requests\UpdateLibroRequest;
@@ -28,8 +29,9 @@ class LibroController extends Controller
     public function create()
     {
         //
+        $autor = Autor::all();
         $libros = Libro::all();
-        return view('libros.crearLibro', compact('libros'));
+        return view('libros.crearLibro', compact('libros','autor'));
     }
 
     /**
@@ -70,6 +72,8 @@ class LibroController extends Controller
     public function edit(Libro $libro)
     {
         //
+        $autor = Autor::all();
+        return view('libros.editarLibro', compact('libro','autor'));
     }
 
     /**
@@ -82,6 +86,9 @@ class LibroController extends Controller
     public function update(UpdateLibroRequest $request, Libro $libro)
     {
         //
+        $validated = $request->validated();
+        $libro->update($request->all());
+        return redirect('libros');
     }
 
     /**
@@ -93,5 +100,7 @@ class LibroController extends Controller
     public function destroy(Libro $libro)
     {
         //
+        $libro->delete();
+        return redirect('libros')->with('eliminar','ok');
     }
 }

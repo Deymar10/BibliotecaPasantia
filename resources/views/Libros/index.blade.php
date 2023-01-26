@@ -37,14 +37,16 @@
 
 
                         <td>
-                            <a href=""  class="btn btn-outline-primary">
+                            <a href="{{ route('libros.edit', $item) }}"  class="btn btn-outline-primary">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            @csrf
+                            <form action="{{ route('libros.destroy', $item) }}" method="POST" class="form-eliminar">
+                                @csrf
                                 @method('DELETE')
                                 <button class="btn btn-outline-danger">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
+                            </form>
                         </td>
                         
                     </tr>

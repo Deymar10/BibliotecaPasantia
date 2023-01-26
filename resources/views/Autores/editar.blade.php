@@ -15,10 +15,11 @@
 <div class="card">
     <div class="card-body">
                
-        <form method="POST" action="{{ route('autor.update', $autor) }}">
+        <form method="POST" action="{{ route('autores.update', $autor)}}">
         @csrf
         @method('PUT')
-            <div class="mb-3">
+            
+        <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" value="{{ $autor->nombre }}" aria-descr>
             </div>

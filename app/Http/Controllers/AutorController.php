@@ -16,8 +16,8 @@ class AutorController extends Controller
     public function index()
     {
         //
-        $autores = Autor::all();
-        return view('Autores.index', compact('autores'));
+        $autor = Autor::all();
+        return view('Autores.index', compact('autor'));
     }
 
     /**
@@ -71,8 +71,8 @@ class AutorController extends Controller
     public function edit(Autor $autor)
     {
         //
-        dd($autor);
-        return view('Autores.editar', compact('autor'));
+        //dd($autor);
+        return view('autores.editar', compact('autor'));
     }
 
     /**
@@ -84,7 +84,8 @@ class AutorController extends Controller
      */
     public function update(UpdateAutorRequest $request, Autor $autor)
     {
-        //                                                                                  
+        //               
+        //dd($autor);                                                       
     }
 
     /**

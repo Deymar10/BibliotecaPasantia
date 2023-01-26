@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($autores as $item)
+                @foreach($autor as $item)
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->nombre}}</td>
@@ -38,7 +38,7 @@
                         <td>{{$item->telefono}}</td>
 
                         <td>
-                            <a href="{{ route('autores.edit',$item) }}"  class="btn btn-outline-primary">
+                            <a href="{{ route('autores.edit', $item) }}"  class="btn btn-outline-primary">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <form action="{{ route('autores.destroy', $item) }}" method="POST" class="form-eliminar">

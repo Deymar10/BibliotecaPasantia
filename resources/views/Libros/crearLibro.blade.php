@@ -21,7 +21,11 @@
             
             <div class="mb-3">
                 <label for="nombre" class="form-label">id_autor</label>
-                <input type="number" value = 1 class="form-control" id="id_autor" name="id_autor" aria-descr>
+                <select class="form-control" name="id_autor">
+                    @foreach ($autor as $item)
+                    <option value="{{$item->id}}">{{$item->nombre}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
                 <label for="apellido" class="form-label">Titulo</label>
