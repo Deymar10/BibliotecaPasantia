@@ -18,6 +18,7 @@ class LibroController extends Controller
     {
         //
         $libros = Libro::all();
+        //$autor = DB::select('select a.nombre from autors a inner join libros b on a.id=b.id_autor where b.id_autor=?;', ['$libros']);
         return view('libros.index', compact('libros'));
     }
 

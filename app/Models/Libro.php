@@ -16,7 +16,7 @@ class Libro extends Model
         'categoria',
 
     ];
-    public function libro(){
-        return $this->belongsTo(Autor::class);
+    public function autor(){
+        return $this->belongsTo(Autor::class, 'id_autor');
     }
 }

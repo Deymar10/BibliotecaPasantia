@@ -15,7 +15,7 @@
 <div class="card">
     <div class="card-body">
                
-        <form method="POST" action="{{ route('autores.update', $autor)}}">
+        <form method="POST" action="{{ route('autor.update', $autor) }}">
         @csrf
         @method('PUT')
             
@@ -33,7 +33,7 @@
             </div>
             <div class="mb-3">
                 <label for="telefono" class="form-label">Celular</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" value="{{ $autor->telefono }}" aria-descr>
+                <input type="number" class="form-control" id="telefono" name="telefono" value="{{ $autor->telefono }}" aria-descr>
             </div>
                    
             <br>

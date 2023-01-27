@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Autor;
-use App\Http\Requests\StoreAutorRequest;
 use App\Http\Requests\UpdateAutorRequest;
+use Illuminate\Http\Request;
+use App\Models\Autor;
 
-class AutorController extends Controller
+class AutoresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,10 +35,10 @@ class AutorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAutorRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAutorRequest $request)
+    public function store(Request $request)
     {
         //
         $autor = new Autor;
@@ -46,19 +46,18 @@ class AutorController extends Controller
         $autor->apellido = $request->apellido;
         $autor->correo = $request->correo;
         $autor->telefono = $request->telefono;
-        $autor->deleted_at = $request->deleted_at;
 
         $autor->save();
-        return redirect('autores');
+        return redirect('autor');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Autor  $autor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Autor $autor)
+    public function show($id)
     {
         //
     }
@@ -66,43 +65,40 @@ class AutorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Autor  $autor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function edit(Autor $autor)
     {
         //
-        dd($autor);
         return view('Autores.editar', compact('autor'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAutorRequest  $request
-     * @param  \App\Models\Autor  $autor
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*public function update(UpdateAutorRequest $request, Autor $autor)
+    public function update(UpdateAutorRequest $request, Autor $autor)
     {
-        //               
-        //dd($autor);   
+        //
         $validated = $request->validated();
         $autor->update($request->all());
-        return redirect('/autores');                                                    
-    }*/
+        return redirect('/autor');
+    }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Autor  $autor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Autor $autor)
     {
         //
         $autor->delete();
-        return redirect('autores')->with('eliminar','ok');
+        return redirect('autor')->with('eliminar','ok');
     }
 }

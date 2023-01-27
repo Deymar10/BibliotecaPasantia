@@ -15,7 +15,7 @@
 <div class="card">
     <div class="card-body">
                
-        <form method="POST" action="{{ route('autores.store')}}">
+        <form method="POST" action="{{ route('autor.store')}}">
         @csrf
             
             

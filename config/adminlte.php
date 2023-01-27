@@ -296,7 +296,7 @@ return [
         ['header' => 'BIBLIOTECA'],
         [
             'text'        => 'Autores',
-            'url'         => 'autores',
+            'url'         => 'autor',
             'icon'        => 'fas fa-at',
             'label_color' => 'success',
         ],

@@ -29,12 +29,12 @@
                 </thead>
                 <tbody>
                 @foreach($libros as $item)
+                @if($item->autor)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->id_autor}}</td>
+                        <td>{{$item->autor->nombre}}</td>
                         <td>{{$item->titulo}}</td>
                         <td>{{$item->categoria}}</td>
-
 
                         <td>
                             <a href="{{ route('libros.edit', $item) }}"  class="btn btn-outline-primary">
@@ -50,6 +50,7 @@
                         </td>
                         
                     </tr>
+                    @endif
                 @endforeach  
                 </tbody>
             </table>

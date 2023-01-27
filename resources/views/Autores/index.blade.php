@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-body">
             <strong>Biblioteca <h4>Bienvenido a la Biblioteca</h4></strong>
-            <a href="{{ route('autores.create') }}" class="btn btn-outline-success float-right">
+            <a href="{{ route('autor.create') }}" class="btn btn-outline-success float-right">
                 Nuevo autor
             </a>
         </div>
@@ -31,17 +31,16 @@
                 <tbody>
                 @foreach($autor as $item)
                     <tr>
-                        <td>{{$item->id}}</td>
-                        <td>{{$item->nombre}}</td>
-                        <td>{{$item->apellido}}</td>
-                        <td>{{$item->correo}}</td>
-                        <td>{{$item->telefono}}</td>
-
+                        <td>{{ $item->id}}</td>
+                        <td>{{ $item->nombre}}</td>
+                        <td>{{ $item->apellido}}</td>
+                        <td>{{ $item->correo}}</td>
+                        <td>{{ $item->telefono}}</td>
                         <td>
-                            <a href="{{ route('autores.edit', $item) }}"  class="btn btn-outline-primary">
+                            <a href="{{ route('autor.edit', $item->id) }}"  class="btn btn-outline-primary">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <form action="{{ route('autores.destroy', $item) }}" method="POST" class="form-eliminar">
+                            <form action="{{ route('autor.destroy', $item) }}" method="POST" class="form-eliminar">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-outline-danger">

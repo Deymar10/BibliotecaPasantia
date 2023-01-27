@@ -16,10 +16,10 @@ class Autor extends Model
         'apellido',
         'correo',
         'telefono',
-        
+        'deleted_at',        
     ];
 
-    public function autor(){
-        return $this->hasMany(Autor::class);
+    public function libro(){
+        return $this->hasMany(Libro::class);
     }
 }

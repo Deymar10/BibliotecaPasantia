@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\AutoresController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/autores',AutorController::class);
+//Route::resource('/autores',AutorController::class);
 Route::resource('/libros',LibroController::class);
+Route::resource('/autor', AutoresController::class);
+
+//Route::post('/autores/{$id}/editar', AutorController::class);
